@@ -1,68 +1,77 @@
 import React from "react";
 import { Form } from "./Form";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterPage = () => {
+  const navigate = useNavigate();
   return (
-    <div className="flex items-center justify-center min-h-screen min-w-screen">
-      <div className="grid bg-white rounded-md text-center gap-3 p-4">
-        <h1 className="text-black font-semibold">Crear Cuenta</h1>
-        <p className="text-slate-500 font-medium text-sm">
-          Unete a nuestra tienda y descubre la mejor moda
-        </p>
+    <div className="flex items-center justify-center min-h-screen px-6">
+      <div className="grid grid-rows-[auto_1fr_auto] bg-white rounded-md text-center p-6 w-full max-w-md gap-6">
+        <div>
+          <h1 className="text-black font-bold text-3xl mb-2">Crear Cuenta</h1>
+          <p className="text-slate-500 font-medium text-sm">
+            Únete a nuestra tienda y descubre la mejor moda
+          </p>
+        </div>
+        
         <Form
           inputs={[
             {
               type: "text",
               placeholder: "Juan",
               label: "Nombre",
-              name: "Nombre",
-              classname: "col-span-1 ",
+              name: "nombre",
+              classname: "col-span-1",
             },
             {
               type: "text",
               placeholder: "Perez",
               label: "Apellido",
-              name: "Apellido",
-              classname: "col-span-1 ",
+              name: "apellido",
+              classname: "col-span-1",
             },
             {
               type: "email",
               placeholder: "tu@email.com",
               label: "Email",
               name: "email",
-              classname: "col-span-2 ",
+              classname: "col-span-2",
             },
             {
-              type: "phone",
+              type: "tel", // Mejor que "phone"
               placeholder: "+1 234 567 8900",
-              label: "Telefono",
+              label: "Teléfono",
               name: "phone",
-              classname: "col-span-2 ",
+              classname: "col-span-2",
             },
             {
               type: "password",
-              placeholder: "Minimo 8 caracteres",
-              label: "Contrasena",
+              placeholder: "Mínimo 8 caracteres",
+              label: "Contraseña",
               name: "password",
-              classname: "col-span-2 ",
+              classname: "col-span-2",
             },
             {
               type: "password",
-              placeholder: "",
-              label: "Confirmar contrasena",
+              placeholder: "Confirma tu contraseña",
+              label: "Confirmar contraseña",
               name: "passwordConfirm",
               classname: "col-span-2",
             },
           ]}
           buttons={["Crear cuenta"]}
-          styleForm="grid grid-cols-2 grid-rows-5 gap-6"
-          styleButtons="col-span-2 bg-rose-600 p-3 rounded-md"
+          styleForm="grid grid-cols-2 gap-4"
+          styleButtons="col-span-2 bg-rose-600 p-3 rounded-md font-semibold text-white hover:bg-rose-700 transition-colors"
         />
+        
         <p className="text-slate-500 font-medium text-sm">
-          ¿Ya tienes cuenta? &nbsp;
-          <a href="/Login" className="text-rose-500">
+          ¿Ya tienes cuenta?{" "}
+          <button 
+            onClick={() => {navigate('/login')} }
+            className="text-rose-500 hover:text-rose-600 hover:cursor-pointer"
+          >
             Inicia sesión aquí
-          </a>
+          </button>
         </p>
       </div>
     </div>

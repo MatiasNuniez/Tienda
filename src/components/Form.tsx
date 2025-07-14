@@ -20,10 +20,10 @@ export const Form: React.FC<FormInputs> = ({
         return (
           <>
             <div className={element.classname}>
-              <div className="flex flex-start gap-x-2 gap-y-4 items-center">
+              <div className="grid rows-2 gap-y-2 items-center">
                 <label
                   htmlFor={element.name}
-                  className="text-black font-semibold"
+                  className="text-black font-semibold flex flex-start"
                 >
                   {element.label}
                 </label>
