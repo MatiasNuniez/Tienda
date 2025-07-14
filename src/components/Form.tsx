@@ -6,6 +6,7 @@ interface FormInputs {
   styleForm: string;
   buttons: string[];
   styleButtons: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Form: React.FC<FormInputs> = ({
@@ -13,6 +14,7 @@ export const Form: React.FC<FormInputs> = ({
   styleForm,
   buttons,
   styleButtons,
+  onChange,
 }) => {
   return (
     <div className={styleForm}>
@@ -20,10 +22,10 @@ export const Form: React.FC<FormInputs> = ({
         return (
           <>
             <div className={element.classname}>
-              <div className="flex flex-start gap-x-2 gap-y-4 items-center">
+              <div className="grid rows-2 gap-y-2 items-center">
                 <label
                   htmlFor={element.name}
-                  className="text-black font-semibold"
+                  className="text-black font-semibold flex flex-start"
                 >
                   {element.label}
                 </label>
@@ -32,6 +34,7 @@ export const Form: React.FC<FormInputs> = ({
                   name={element.name}
                   placeholder={element.placeholder}
                   className="p-2 mr-2 border-1 text-slate-500 rounded-md w-full"
+                  onChange={onChange}
                 />
               </div>
             </div>
