@@ -38,7 +38,7 @@ export const RegisterPage = () => {
               classname: "col-span-2",
             },
             {
-              type: "tel", // Mejor que "phone"
+              type: "phone",
               placeholder: "+1 234 567 8900",
               label: "Teléfono",
               name: "phone",
