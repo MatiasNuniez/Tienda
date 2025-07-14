@@ -15,14 +15,14 @@ export const LoginPage: React.FC = () => {
             placeholder: "Ingrese email",
             label: "Correo Electronico",
             name: "Email",
-            classname:''
+            classname: "",
           },
           {
             type: "password",
             label: "Contrasena",
             name: "Contrasena",
             placeholder: "Ingrese su contrasena",
-            classname:''
+            classname: "",
           },
         ]}
         styleForm={styleForm}

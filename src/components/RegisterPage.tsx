@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "./Form";
 import { useNavigate } from "react-router-dom";
 
+interface RegisterI {
+  nombre: string;
+  apellido: string;
+  email: string;
+  phone: string;
+  password: string;
+  passwordConfirm: string;
+}
+
 export const RegisterPage = () => {
   const navigate = useNavigate();
+
+  const [registerData, setregisterData] = useState<RegisterI>({
+    apellido: "",
+    email: "",
+    nombre: "",
+    password: "",
+    passwordConfirm: "",
+    phone: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setregisterData({ ...registerData, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen px-6">
       <div className="grid grid-rows-[auto_1fr_auto] bg-white rounded-md text-center p-6 w-full max-w-md gap-6">
@@ -13,7 +36,7 @@ export const RegisterPage = () => {
             Únete a nuestra tienda y descubre la mejor moda
           </p>
         </div>
-        
+
         <Form
           inputs={[
             {
@@ -62,12 +85,15 @@ export const RegisterPage = () => {
           buttons={["Crear cuenta"]}
           styleForm="grid grid-cols-2 gap-4"
           styleButtons="col-span-2 bg-rose-600 p-3 rounded-md font-semibold text-white hover:bg-rose-700 transition-colors"
+          onChange={handleChange}
         />
-        
+
         <p className="text-slate-500 font-medium text-sm">
           ¿Ya tienes cuenta?{" "}
-          <button 
-            onClick={() => {navigate('/login')} }
+          <button
+            onClick={() => {
+              navigate("/login");
+            }}
             className="text-rose-500 hover:text-rose-600 hover:cursor-pointer"
           >
             Inicia sesión aquí
