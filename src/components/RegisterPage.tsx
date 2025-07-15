@@ -14,7 +14,7 @@ interface RegisterI {
 export const RegisterPage = () => {
   const navigate = useNavigate();
 
-  const [registerData, setregisterData] = useState<RegisterI>({
+  const [registerData, setRegisterData] = useState<RegisterI>({
     apellido: "",
     email: "",
     nombre: "",
@@ -24,12 +24,12 @@ export const RegisterPage = () => {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setregisterData({ ...registerData, [e.target.name]: e.target.value });
+    setRegisterData({ ...registerData, [e.target.name]: e.target.value });
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen px-6">
-      <div className="grid grid-rows-[auto_1fr_auto] bg-white rounded-md text-center p-6 w-full max-w-md gap-6">
+      <div className="grid grid-rows-[auto_1fr_auto] bg-white rounded-md text-center p-6 w-full max-w-md gap-6 shadow-md">
         <div>
           <h1 className="text-black font-bold text-3xl mb-2">Crear Cuenta</h1>
           <p className="text-slate-500 font-medium text-sm">
@@ -92,7 +92,7 @@ export const RegisterPage = () => {
           ¿Ya tienes cuenta?{" "}
           <button
             onClick={() => {
-              navigate("/login");
+              navigate("/Login");
             }}
             className="text-rose-500 hover:text-rose-600 hover:cursor-pointer"
           >
