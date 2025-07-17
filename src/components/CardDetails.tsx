@@ -7,7 +7,7 @@ export const CardDetails = () => {
         <img
           src="https://acdn-us.mitiendanube.com/stores/144/702/products/remera-hombre-microfribra-negra-frente1-610cb5cbd3ee068e2516364701229138-1024-1024.jpg"
           alt=""
-          className="w-full h-48 object-cover"
+          className="w-full h-60 object-cover"
         />
       </div>
       <div className="grid grid-rows-[auto_auto_auto_1fr] gap-2 px-4">
